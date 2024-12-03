@@ -1,0 +1,241 @@
+@use '../utils' as *;
+
+/*=============================
+    20. All Keyframes Here
+===============================*/
+
+/* slideDown Keyframes */
+@-webkit-keyframes tgSlideDown {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+@keyframes tgSlideDown {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Blinker Keyframes */
+@-webkit-keyframes shapeBlinker {
+    50% {
+        opacity: .59;
+    }
+}
+@keyframes shapeBlinker {
+    50% {
+        opacity: .59;
+    }
+}
+
+/* Rotation Keyframes */
+@-webkit-keyframes mykdRotation {
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+@keyframes mykdRotation {
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+/* Text Animation Keyframes */
+.tg__animate-text span {
+    animation: .8s both tg_animated_text;
+}
+@keyframes tg_animated_text {
+    0% {
+        opacity: 0;
+    }
+    65% {
+        opacity: 1;
+        text-shadow: 0 0 25px var(--tg-theme-primary);
+    }
+    75% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Text Animation Keyframes */
+.tg__animate-text.style2 span {
+    animation: .8s both tg_animated_text2;
+}
+@keyframes tg_animated_text2 {
+    0% {
+        opacity: 0;
+    }
+    65% {
+        opacity: 1;
+        text-shadow: 0 0 25px var(--tg-common-color-black-4);
+    }
+    75% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Shake Animation Keyframes */
+@-webkit-keyframes breadcrumbShake {
+    10%, 90% {
+        -webkit-transform: translate3d(-1px, 0, 0);
+        transform: translate3d(-1px, 0, 0);
+    }
+    20%, 80% {
+        -webkit-transform: translate3d(2px, 0, 0);
+        transform: translate3d(2px, 0, 0);
+    }
+    30%, 50%, 70% {
+        -webkit-transform: translate3d(-4px, 0, 0);
+        transform: translate3d(-4px, 0, 0);
+    }
+    40%, 60% {
+        -webkit-transform: translate3d(4px, 0, 0);
+        transform: translate3d(4px, 0, 0);
+    }
+}
+@keyframes breadcrumbShake {
+    10%, 90% {
+        -webkit-transform: translate3d(-1px, 0, 0);
+        transform: translate3d(-1px, 0, 0);
+    }
+    20%, 80% {
+        -webkit-transform: translate3d(2px, 0, 0);
+        transform: translate3d(2px, 0, 0);
+    }
+    30%, 50%, 70% {
+        -webkit-transform: translate3d(-4px, 0, 0);
+        transform: translate3d(-4px, 0, 0);
+    }
+    40%, 60% {
+        -webkit-transform: translate3d(4px, 0, 0);
+        transform: translate3d(4px, 0, 0);
+    }
+}
+
+/* About Animation Keyframes */
+@-webkit-keyframes xAnimation {
+    0% {
+        -webkit-transform: translateX(50px);
+        transform: translateX(50px);
+    }
+    50% {
+        -webkit-transform: translateX(10px);
+        transform: translateX(10px);
+    }
+    100% {
+        -webkit-transform: translateX(50px);
+        transform: translateX(50px);
+    }
+}
+@keyframes xAnimation {
+    0% {
+        -webkit-transform: translateX(50px);
+        transform: translateX(50px);
+    }
+    50% {
+        -webkit-transform: translateX(10px);
+        transform: translateX(10px);
+    }
+    100% {
+        -webkit-transform: translateX(50px);
+        transform: translateX(50px);
+    }
+}
+
+/* tabHover Animation Keyframes */
+@-webkit-keyframes defaultInset {
+    0% {
+        -webkit-clip-path: inset(0 0 0 0);
+        clip-path: inset(0 0 0 0);
+    }
+    100% {
+        -webkit-clip-path: inset(0 0 0 100%);
+        clip-path: inset(0 0 0 100%);
+    }
+}
+@keyframes defaultInset {
+    0% {
+        -webkit-clip-path: inset(0 0 0 0);
+        clip-path: inset(0 0 0 0);
+    }
+    100% {
+        -webkit-clip-path: inset(0 0 0 100%);
+        clip-path: inset(0 0 0 100%);
+    }
+}
+@-webkit-keyframes activeInset {
+    0% {
+        -webkit-clip-path: inset(0 100% 0 0);
+        clip-path: inset(0 100% 0 0);
+    }
+    100% {
+        -webkit-clip-path: inset(0 0 0 0);
+        clip-path: inset(0 0 0 0);
+    }
+}
+@keyframes activeInset {
+    0% {
+        -webkit-clip-path: inset(0 100% 0 0);
+        clip-path: inset(0 100% 0 0);
+    }
+    100% {
+        -webkit-clip-path: inset(0 0 0 0);
+        clip-path: inset(0 0 0 0);
+    }
+}
+
+/* Button Animation Keyframes */
+@-webkit-keyframes tg_arrow {
+    49% {
+        transform: translateX(80%);
+    }
+    50% {
+        opacity: 0;
+        transform: translateX(-80%);
+    }
+    51% {
+        opacity: 1;
+    }
+}
+@-moz-keyframes tg_arrow {
+    49% {
+        transform: translateX(80%);
+    }
+    50% {
+        opacity: 0;
+        transform: translateX(-80%);
+    }
+    51% {
+        opacity: 1;
+    }
+}
+@keyframes tg_arrow {
+    49% {
+        transform: translateX(80%);
+    }
+    50% {
+        opacity: 0;
+        transform: translateX(-80%);
+    }
+    51% {
+        opacity: 1;
+    }
+}

@@ -1,0 +1,148 @@
+@use '../utils' as *;
+
+/*=============================
+    18. Contact
+===============================*/
+.contact {
+    &-area {
+        padding: 140px 0 125px;
+    }
+    &__content {
+        margin-right: 50px;
+        position: relative;
+        z-index: 1;
+        @media #{$xl} {
+            margin-right: 0;
+        }
+        & .overlay-title {
+            font-size: 90px;
+            line-height: .8;
+            font-weight: var(--tg-fw-extra-bold);
+            position: absolute;
+            left: 0;
+            top: 0;
+            right: 0;
+            @include transform(translateY(calc(-100% + 13px)));
+            margin: 0 0;
+            letter-spacing: 4px;
+            z-index: -1;
+            @media #{$xs} {
+                font-size: 16vw;
+            }
+            @media #{$sm} {
+                font-size: 13vw;
+            }
+            &::after {
+                content: "";
+                position: absolute;
+                left: 0;
+                bottom: -2px;
+                width: 100%;
+                height: 100%;
+                background: rgb(15, 22, 27);
+                background: linear-gradient(0deg, rgba(15, 22, 27, 1) 0%, rgba(255, 255, 255, 0) 100%);
+                opacity: .65;
+            }
+            & span {
+                display: block;
+                -webkit-text-fill-color: transparent;
+                -webkit-text-stroke-width: 2px;
+                -webkit-text-stroke-color: var(--tg-common-color-white);
+                opacity: .05;
+            }
+        }
+        & > .title {
+            font-size: 45px;
+            font-weight: var(--tg-fw-extra-bold);
+            margin: 0 0 21px;
+            @media #{$xs} {
+                font-size: 40px;
+            }
+        }
+        & p {
+            font-weight: var(--tg-fw-medium);
+            margin: 0 0 0;
+        }
+        & .footer-el-widget {
+            margin: 30px 0 0 !important;
+        }
+    }
+    &__form-wrap {
+        @media #{$md} {
+            margin: 50px 0 0;
+        }
+        & .input-grp {
+            position: relative;
+            -webkit-clip-path: polygon(100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%, 0 0);
+            clip-path: polygon(100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%, 0 0);
+            margin: 0 0 30px;
+            &::after {
+                content: "";
+                position: absolute;
+                background-color: #262f39;
+                width: 60px;
+                height: 1px;
+                right: -21px;
+                bottom: 12px;
+                -webkit-transform: rotate(-45deg);
+                -ms-transform: rotate(-45deg);
+                transform: rotate(-45deg);
+            }
+            & input,
+            & textarea {
+                display: block;
+                width: 100%;
+                border: 1px solid #262f39;
+                background: transparent;
+                color: var(--tg-common-color-white);
+                padding: 15px 25px;
+            }
+            & textarea {
+                height: 148px;
+                max-height: 148px;
+            }
+            &.message-grp {
+                margin: 0 0 35px;
+            }
+        }
+        & .submit-btn {
+            -webkit-clip-path: polygon(100% 0, 100% 65%, 89% 100%, 0 100%, 0 0);
+            clip-path: polygon(100% 0, 100% 65%, 89% 100%, 0 100%, 0 0);
+            background: var(--tg-theme-primary);
+            color: var(--tg-common-color-black);
+            font-family: var(--tg-heading-font-family);
+            text-transform: uppercase;
+            font-weight: var(--tg-fw-bold);
+            letter-spacing: 1px;
+            border: none;
+            padding: 14px 30px;
+            &:hover {
+                background: var(--tg-theme-secondary);
+            }
+        }
+        & .ajax-response {
+            margin: 0 0;
+            &.error,
+            &.success {
+                margin-top: 15px;
+            }
+            &.error {
+                color: var(--tg-theme-secondary);
+            }
+            &.success {
+                color: var(--tg-theme-primary);
+            }
+        }
+    }
+    &-map {
+        & iframe {
+            display: block;
+            width: 100%;
+            height: 600px;
+            opacity: .8;
+            @media #{$xl} {
+                height: 450px;
+            }
+        }
+    }
+}

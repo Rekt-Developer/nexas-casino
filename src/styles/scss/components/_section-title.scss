@@ -1,0 +1,93 @@
+@use '../utils' as *;
+
+/*=============================
+    00. Section Title
+===============================*/
+.section__title {
+    position: relative;
+    & .sub-title {
+        display: block;
+        text-transform: uppercase;
+        font-size: 14px;
+        letter-spacing: 2px;
+        font-weight: var(--tg-fw-semi-bold);
+        color: var(--tg-theme-primary);
+        line-height: 1;
+        margin: 0 0 7px;
+        @media #{$xs} {
+            margin: 0 0 10px;
+        }
+    }
+    & .title {
+        font-size: 45px;
+        font-weight: var(--tg-fw-extra-bold);
+        letter-spacing: 1px;
+        margin: 0 0;
+        @media #{$xs} {
+            font-size: 35px;
+            line-height: 1.1;
+        }
+        & br {
+            @media #{$lg} {
+                display: none;
+            }
+        }
+    }
+    &::after {
+        content: "";
+        display: block;
+        // background-image: url(../../img/bg/title_shape.svg);
+        width: 65px;
+        height: 5px;
+        margin: 20px auto 0;
+    }
+    &.title-shape-none {
+        &::after {
+            display: none;
+        }
+    }
+    &.text-start {
+        & .title {
+            line-height: 1.15;
+        }
+        &::after {
+            margin: 20px 0 0;
+        }
+    }
+    &-link {
+        text-align: right;
+        @media #{$md} {
+            text-align: center;
+            margin: 10px 0 0;
+        }
+        & a {
+            display: inline-block;
+            font-family: var(--tg-heading-font-family);
+            font-weight: var(--tg-fw-semi-bold);
+            color: var(--tg-body-color);
+            position: relative;
+            padding: 0 0 3px;
+            &:hover {
+                color: var(--tg-theme-primary);
+            }
+            &::after {
+                content: "";
+                position: absolute;
+                bottom: 0;
+                right: 0;
+                width: 100%;
+                height: 1px;
+                background: var(--tg-theme-primary);
+            }
+        }
+    }
+}
+.tg__animate-text {
+    opacity: 0;
+    & em {
+        opacity: 0;
+    }
+    &.ready {
+        opacity: 1;
+    }
+}

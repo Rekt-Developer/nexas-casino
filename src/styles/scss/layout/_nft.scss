@@ -1,0 +1,362 @@
+@use '../utils' as *;
+
+/*=============================
+    04. NFT
+===============================*/
+.nft-item {
+    &__area {
+        background: var(--tg-common-color-black-3);
+        padding: 100px 0 70px;
+        & .row {
+            --bs-gutter-x: 37px;
+            @media #{$xl} {
+                --bs-gutter-x: 30px;
+            }
+        }
+    }
+    &__box {
+        @include flexbox();
+        align-items: flex-end;
+        background-color: #121a23;
+        // background-image: -moz-linear-gradient(90deg, #0c0e12 0%, rgba(31, 41, 53, 0.36078) 100%);
+        // background-image: -webkit-linear-gradient(90deg, #0c0e12 0%, rgba(31, 41, 53, 0.36078) 100%);
+        // background-image: -ms-linear-gradient(90deg, #0c0e12 0%, rgba(31, 41, 53, 0.36078) 100%);
+        @include border-radius(8px);
+        border: 1px solid rgb(76, 76, 76, .2);
+        padding: 25px;
+        margin: 0 0 30px;
+        @include transition(.3s);
+        @media #{$xs} {
+            display: block;
+            text-align: center;
+            max-width: 320px;
+            padding: 35px 25px 25px;
+            margin: 0 auto 30px;
+        }
+        @media #{$sm} {
+            @include flexbox();
+            text-align: left;
+            max-width: 100%;
+            padding: 25px 25px;
+            margin: 0 0 30px;
+        }
+        &:hover {
+            border-color: rgb(69, 248, 130, .2);
+        }
+    }
+    &__thumb {
+        flex: 0 0 auto;
+        margin-right: 20px;
+        max-width: 187px;
+        @media #{$xxl} {
+            max-width: 165px;
+        }
+        @media #{$xl} {
+            max-width: 170px;
+        }
+        @media #{$md} {
+            max-width: 187px;
+        }
+        @media #{$xs} {
+            margin: 0 auto 25px;
+        }
+        @media #{$sm} {
+            margin: 0 20px 0 0;
+        }
+        & img {
+            @include border-radius(8px);
+        }
+    }
+    &__content {
+        flex-grow: 1;
+        & .title {
+            font-size: 20px;
+            letter-spacing: .5px;
+            margin: 0 0 15px;
+        }
+    }
+    &__avatar {
+        @include flexbox();
+        align-items: center;
+        margin: 0 0 20px;
+        @media #{$xs} {
+            justify-content: center;
+        }
+        @media #{$sm} {
+            justify-content: flex-start;
+        }
+        & .avatar-img {
+            margin: 0 10px 0 0;
+            flex: 0 0 auto;
+            & img {
+                @include border-radius(50%);
+            }
+        }
+        & .avatar-name {
+            @include flexbox();
+            align-items: center;
+            & .name {
+                margin: 0 0 0;
+                font-size: 18px;
+                font-weight: var(--tg-fw-semi-bold);
+                color: #9b9b9b;
+                text-transform: capitalize;
+            }
+            & .designation {
+                font-size: 12px;
+                font-weight: 500;
+                text-transform: uppercase;
+                color: #9b9b9b;
+                &::before {
+                    content: "|";
+                    display: inline-block;
+                    font-size: 12px;
+                    font-weight: 500;
+                    color: #434343;
+                    padding: 0 8px 0 10px;
+                }
+            }
+        }
+    }
+    &__price {
+        @include flexbox();
+        align-items: center;
+        background-color: #121a23;
+        // background-image: -moz-linear-gradient(90deg, rgb(12, 14, 18) 0%, rgb(16, 24, 31) 100%);
+        // background-image: -webkit-linear-gradient(90deg, rgb(12, 14, 18) 0%, rgb(16, 24, 31) 100%);
+        // background-image: -ms-linear-gradient(90deg, rgb(12, 14, 18) 0%, rgb(16, 24, 31) 100%);
+        @include border-radius(8px);
+        border: 1px solid rgb(76, 76, 76, .5);
+        padding: 14px 15px 14px 20px;
+        & p {
+            margin: 0 0;
+            font-family: var(--tg-heading-font-family);
+            font-size: 18px;
+            color: #e8e8e8;
+            font-weight: var(--tg-fw-semi-bold);
+            & span {
+                text-transform: uppercase;
+                font-weight: var(--tg-fw-bold);
+                color: var(--tg-theme-secondary);
+            }
+        }
+        & .bid-btn {
+            @include flexbox();
+            align-items: center;
+            column-gap: 10px;
+            background: var(--tg-theme-secondary);
+            color: var(--tg-common-color-black-2);
+            text-transform: capitalize;
+            font-family: var(--tg-heading-font-family);
+            font-weight: var(--tg-fw-semi-bold);
+            @include border-radius(6px);
+            font-size: 18px;
+            line-height: 1;
+            padding: 11px 14px;
+            margin-left: auto;
+            &:hover {
+                background: var(--tg-theme-primary);
+            }
+        }
+    }
+}
+.section-pt-120 {
+    padding-top: 120px;
+    @media #{$xs} {
+        padding-top: 100px;
+    }
+}
+.section-pb-90 {
+    padding-bottom: 90px;
+    @media #{$xs} {
+        padding-bottom: 70px;
+    }
+}
+.trendingNft {
+    &-area {
+        background-color: var(--tg-common-color-black-4);
+    }
+    &__title {
+        &-wrap {
+            margin: 0 0 50px;
+        }
+        & .title {
+            @include flexbox();
+            align-items: center;
+            gap: 18px;
+            margin: 0 0;
+            font-size: 36px;
+            @media #{$xs} {
+                justify-content: center;
+            }
+        }
+    }
+    &__nav {
+        @include flexbox();
+        align-items: center;
+        justify-content: flex-end;
+        gap: 13px;
+        @media #{$xs} {
+            justify-content: center;
+            margin-top: 18px;
+        }
+        &>* {
+            @include flexbox();
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border: 2px solid #adb0bc;
+            background: transparent;
+            @include border-radius(50%);
+            font-size: 18px;
+            color: #adb0bc;
+            &:hover {
+                border-color: var(--tg-theme-primary);
+                color: var(--tg-theme-primary);
+            }
+        }
+    }
+    &__item {
+        // background-image: url(../../img/bg/trendnft_img.png);
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+        max-width: 403px;
+        height: 426px;
+        padding: 24px 20px;
+        margin: 0 0 30px;
+        @media #{$lg} {
+            margin: 0 auto 30px;
+        }
+        @media #{$md} {
+            max-width: 330px;
+            height: 345px;
+        }
+        @media #{$sm} {
+            max-width: 403px;
+            height: 426px;
+        }
+        &-top {
+            @include flexbox();
+            align-items: center;
+            margin: 0 0 15px;
+        }
+        &-avatar {
+            @include flexbox();
+            gap: 9px;
+            & .image {
+                max-width: 45px;
+                flex: 0 0 auto;
+            }
+            & img {
+                @include border-radius(50%);
+            }
+            & .info {
+                & .name {
+                    font-size: 16px;
+                    font-weight: var(--tg-fw-semi-bold);
+                    text-transform: capitalize;
+                    color: #fcfcfc;
+                    margin: 0 0 5px;
+                }
+                & .userName {
+                    display: block;
+                    line-height: 1;
+                    font-size: 12px;
+                    font-weight: var(--tg-fw-semi-bold);
+                    color: var(--tg-body-color);
+                    font-family: var(--tg-heading-font-family);
+                    text-decoration: underline;
+                    &:hover {
+                        color: var(--tg-theme-primary);
+                    }
+                }
+            }
+        }
+        &-wish {
+            margin-left: auto;
+            & a {
+                color: #c9c9c9;
+                &:hover {
+                    color: var(--tg-theme-primary);
+                }
+            }
+        }
+        &-image {
+            & img {
+                @include border-radius(8px);
+                // width: 100%;
+                // max-height: 249px;
+                object-fit: cover;
+                // @media #{$md} {
+                //     max-height: 170px;
+                // }
+                // @media #{$sm} {
+                //     max-height: 249px;
+                // }
+            }
+        }
+        &-bottom {
+            @include flexbox();
+            align-items: center;
+            flex-wrap: wrap;
+            & .bid-btn {
+                @include flexbox();
+                align-items: center;
+                column-gap: 10px;
+                background: var(--tg-theme-secondary);
+                color: var(--tg-common-color-black-2);
+                text-transform: capitalize;
+                font-family: var(--tg-heading-font-family);
+                font-weight: var(--tg-fw-semi-bold);
+                @include border-radius(6px);
+                font-size: 18px;
+                line-height: 1;
+                padding: 11px 14px;
+                margin-left: auto;
+                margin-right: 35px;
+                &:hover {
+                    background: var(--tg-theme-primary);
+                }
+            }
+            &::before {
+                content: "";
+                display: block;
+                width: 100%;
+                height: 1px;
+                background: linear-gradient(90deg, transparent 0%, #383d44 50%, transparent 100%);
+                flex: 0 0 100%;
+                margin: 14px 0 13px;
+            }
+        }
+        &-price {
+            & .bid {
+                display: block;
+                font-family: var(--tg-heading-font-family);
+                text-transform: capitalize;
+                font-size: 13px;
+                font-weight: var(--tg-fw-semi-bold);
+                line-height: 1;
+                margin: 0 0 7px;
+            }
+            & .eth {
+                @include flexbox();
+                align-items: center;
+                font-size: 18px;
+                color: #e8e8e8;
+                font-weight: var(--tg-fw-semi-bold);
+                margin: 0 0;
+                & i {
+                    color: var(--tg-theme-secondary);
+                    margin-right: 10px;
+                }
+                & span {
+                    color: var(--tg-theme-secondary);
+                    font-weight: var(--tg-fw-bold);
+                    margin-left: 5px;
+                }
+            }
+        }
+    }
+}

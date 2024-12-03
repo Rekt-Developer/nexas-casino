@@ -1,0 +1,193 @@
+@use '../utils' as *;
+
+/*=============================
+    12. Match Result
+===============================*/
+.match {
+    &__result {
+        &-area {
+            position: relative;
+            padding: 95px 0 120px;
+            z-index: 1;
+        }
+        &-bg {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: calc(100% + 70px);
+            background-position: top center;
+            background-size: cover;
+            z-index: -1;
+        }
+        &-wrapper {
+            &>* {
+                &:nth-child(even) {
+                    & .match__winner-wrap {
+                        flex-direction: row-reverse;
+                        @media #{$md} {
+                            flex-direction: column-reverse;
+                            margin-right: 0;
+                            margin-left: 10px;
+                            align-items: flex-start;
+                        }
+                        @media #{$xs} {
+                            align-items: flex-end;
+                            margin: 20px auto 0;
+                        }
+                        @media #{$sm} {
+                            margin: 0 auto 0;
+                        }
+                    }
+                    & .match__winner-img {
+                        flex-direction: row-reverse;
+                        margin-left: 0;
+                        margin-right: 22px;
+                        @media #{$xs} {
+                            margin: 0 0;
+                        }
+                    }
+                    & .match__winner-img .svg-icon {
+                        right: auto;
+                        left: 0;
+                        @include transform(translateY(-50%) rotateY(180deg));
+                    }
+                    & .match__winner-place {
+                        padding: 10px 15px 10px 35px;
+                    }
+                    & .match__winner-info {
+                        text-align: left;
+                        @media #{$xs} {
+                            text-align: right;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &__winner {
+        &-title {
+            text-align: center;
+            margin: 0 0 20px;
+            font-size: 24px;
+            font-weight: var(--tg-fw-extra-bold);
+            letter-spacing: 2px;
+            color: var(--tg-theme-primary);
+            @media #{$xs} {
+                margin: 0 0 30px;
+            }
+        }
+        &-wrap {
+            @include flexbox();
+            justify-content: flex-end;
+            align-items: center;
+            @media #{$md} {
+                justify-content: flex-start;
+                align-items: flex-end;
+                flex-direction: column-reverse;
+                row-gap: 13px;
+                margin-right: 10px;
+            }
+            @media #{$xs} {
+                align-items: flex-start;
+                margin: 0 auto;
+                max-width: 280px;
+            }
+        }
+        &-info {
+            flex-grow: 1;
+            text-align: right;
+            @media #{$xs} {
+                text-align: left;
+            }
+            & .name {
+                font-size: 24px;
+                line-height: 1;
+                font-weight: var(--tg-fw-extra-bold);
+                letter-spacing: 2px;
+                margin: 0 0 6px;
+            }
+            & .price-amount {
+                display: block;
+                font-size: 14px;
+                font-family: var(--tg-heading-font-family);
+                font-weight: var(--tg-fw-semi-bold);
+                color: var(--tg-theme-primary);
+                letter-spacing: .5px
+            }
+        }
+        &-img {
+            @include flexbox();
+            align-items: center;
+            position: relative;
+            margin-left: 22px;
+            z-index: 1;
+            @media #{$xs} {
+                margin-left: 0;
+            }
+            & .team-logo-img {
+                width: 112px;
+                height: 112px;
+                background: #171717;
+                border: 3px solid var(--tg-theme-primary);
+                @include border-radius(50%);
+                @include flexbox();
+                justify-content: center;
+                align-items: center;
+                flex: 0 0 auto;
+                box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.1);
+                & img {
+                    max-width: 70px;
+                }
+            }
+            & .svg-icon {
+                position: absolute;
+                right: 0;
+                top: 50%;
+                @include transform(translateY(-50%));
+                height: 75px;
+                width: 135px;
+                fill: var(--tg-theme-primary);
+                z-index: -1;
+            }
+        }
+        &-place {
+            font-size: 30px;
+            font-weight: var(--tg-fw-extra-bold);
+            color: #20202a;
+            letter-spacing: 2px;
+            margin: 0 0;
+            text-transform: uppercase;
+            padding: 10px 35px 10px 15px;
+            line-height: 1;
+        }
+    }
+}
+.grand__final {
+    text-align: center;
+    margin: 30px 0 0;
+    @media #{$md} {
+        margin: 50px 0 0;
+    }
+    @media #{$sm} {
+        margin: 30px 0 0;
+    }
+    &-date {
+        font-size: 14px;
+        font-weight: var(--tg-fw-medium);
+        color: #e5e5e5;
+        letter-spacing: 1px;
+        margin: 0 0 3px;
+    }
+    &-place {
+        display: block;
+        text-transform: uppercase;
+        font-weight: var(--tg-fw-semi-bold);
+        color: var(--tg-theme-primary);
+        font-family: var(--tg-heading-font-family);
+        letter-spacing: 1px;
+    }
+    &-button {
+        margin: 32px 0 0;
+    }
+}

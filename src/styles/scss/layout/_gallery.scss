@@ -1,0 +1,255 @@
+@use '../utils' as *;
+
+/*=============================
+    06. Gallery
+===============================*/
+.gallery {
+    &__slider {
+        & .swiper-slide {
+            padding-left: 15px;
+            padding-right: 15px;
+            @media #{$xs} {
+                padding-left: 0;
+                padding-right: 0;
+            }
+        }
+    }
+    &__item {
+        margin: 0 0 55px;
+        @include transition(.3s);
+        @include transform(scale(.9));
+    }
+    &__thumb {
+        margin: 0 0 30px;
+        @media #{$xs} {
+            margin: 0 0 20px;
+        }
+        & img {
+            width: 100%;
+            border: 8px solid var(--tg-border-3);
+            box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.42);
+            @media #{$xs} {
+                border-width: 5px;
+            }
+        }
+    }
+    &__content {
+        @include flexbox();
+        justify-content: space-between;
+        align-items: center;
+        opacity: 0;
+        @include transition(.3s);
+        @include transform(translateY(-40px));
+        & .title {
+            margin: 0 0;
+            font-size: 26px;
+            @media #{$xs} {
+                font-size: 20px;
+            }
+        }
+        & .rate {
+            display: block;
+            text-transform: uppercase;
+            color: #aaaaa9;
+            font-family: var(--tg-heading-font-family);
+            font-weight: var(--tg-fw-semi-bold);
+        }
+    }
+}
+.gallery-active {
+    &.swiper-container {
+        overflow: visible;
+    }
+    & .swiper-slide-active {
+        & .gallery__item {
+            @include transform(scale(1));
+        }
+        & .gallery__content {
+            opacity: 1;
+            @include transform(translateY(0px));
+        }
+    }
+    & .swiper-scrollbar {
+        background: rgba(69, 248, 130, .49);
+    }
+    &.swiper-container-horizontal {
+        & > .swiper-scrollbar {
+            border-radius: 0;
+            height: 4px;
+            width: 100%;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            cursor: pointer;
+            max-width: calc(100% - 30px);
+        }
+        & .swiper-scrollbar-drag {
+            @include border-radius(0);
+            height: 8px;
+            top: -2px;
+            background: var(--tg-theme-primary);
+        }
+    }
+    &.swiper-horizontal {
+        & > .swiper-scrollbar {
+            border-radius: 0;
+            height: 4px;
+            width: 100%;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            cursor: pointer;
+            max-width: calc(100% - 30px);
+        }
+        & .swiper-scrollbar-drag {
+            @include border-radius(0);
+            height: 8px;
+            top: -2px;
+            background: var(--tg-theme-primary);
+        }
+    }
+}
+.mfp-title {
+    text-transform: uppercase;
+    font-family: var(--tg-heading-font-family);
+    font-weight: var(--tg-fw-bold);
+}
+.mfp-bottom-bar {
+    margin-top: -30px;
+}
+.section-pb-140 {
+    padding-bottom: 140px;
+}
+.project {
+    &-bg {
+        background-color: #09090b;
+        overflow: hidden;
+    }
+    &__wrapper {
+        @include flexbox();
+        position: relative;
+        margin: 0 0 75px;
+        @media #{$md} {
+            flex-direction: column;
+            row-gap: 50px;
+        }
+        @media #{$xs} {
+            margin: 0 0 50px;
+        }
+        & .section__title {
+            width: 420px;
+            flex: 0 0 auto;
+            margin: 70px 0 0;
+            @media #{$md} {
+                width: 100%;
+                flex: 0 0 auto;
+                margin: 0 0;
+                text-align: center !important;
+            }
+            &::after {
+                display: none;
+            }
+            & .title {
+                margin: 0 0 10px;
+            }
+            & .sub-title {
+                margin: 0 0;
+            }
+        }
+        & .slider-button-prev {
+            position: absolute;
+            left: 30.5%;
+            top: 50%;
+            @include transform(translateY(-50%) rotate(180deg));
+            @include flexbox();
+            align-items: center;
+            line-height: 1;
+            font-size: 38px;
+            letter-spacing: -7px;
+            @media #{$xl} {
+                left: 34.5%;
+            }
+            @media #{$lg} {
+                left: 43.5%;
+            }
+            @media #{$md} {
+                left: 0;
+                top: calc(50% + 60px);
+            }
+            @media #{$xs} {
+                display: none;
+            }
+            &>* {
+                @include transition(.3s);
+                color: var(--tg-common-color-white);
+                animation: shapeBlinker .6s linear infinite;
+                &:last-child {
+                    color: var(--tg-theme-primary);
+                    animation-delay: .2s;
+                }
+            }
+            &:hover {
+                &>* {
+                    animation-play-state: paused;
+                    color: var(--tg-theme-primary);
+                    &:last-child {
+                        color: var(--tg-common-color-white);
+                    }
+                }
+            }
+        }
+    }
+    &-active {
+        margin: 0 -180px 0 160px;
+        position: relative;
+        overflow: hidden;
+        list-style: none;
+        padding: 0;
+        z-index: 1;
+        @media #{$xl} {
+            margin: 0 -230px 0 100px;
+        }
+        @media #{$lg} {
+            margin: 0 -230px 0 80px;
+        }
+        @media #{$md} {
+            margin: 0 -230px 0 110px;
+        }
+        @media #{$xs} {
+            margin: 0 0;
+        }
+    }
+    &-area {
+        & .swiper-scrollbar {
+            display: block;
+            width: 100%;
+            height: 2px;
+            position: relative;
+            @include border-radius(0);
+            background: transparent;
+            margin: 11px 0;
+            left: 0;
+            bottom: 0;
+            &::before {
+                content: "";
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                background: var(--tg-theme-primary);
+                pointer-events: none;
+                opacity: .65;
+            }
+            & .swiper-scrollbar-drag {
+                height: 24px;
+                background: var(--tg-theme-primary);
+                @include border-radius(50%);
+                cursor: pointer;
+                @include transition(.5s);
+                top: -11px;
+                z-index: 1;
+            }
+        }
+    }
+}

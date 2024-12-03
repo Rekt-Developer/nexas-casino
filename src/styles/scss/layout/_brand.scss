@@ -1,0 +1,46 @@
+@use '../utils' as *;
+
+/*=============================
+    15. Brand
+===============================*/
+.brand {
+    &-area {
+        padding: 110px 0 120px;
+        background-color: var(--tg-common-color-black-6);
+    }
+    &__title {
+        margin: 0 0 70px;
+        @media #{$xs} {
+            margin: 0 0 50px;
+        }
+        & .title {
+            font-size: 45px;
+            font-weight: var(--tg-fw-medium);
+            line-height: 1;
+            letter-spacing: 3px;
+            margin: 0 0;
+            @media #{$xs} {
+                font-size: 36px;
+                letter-spacing: 2px;
+            }
+        }
+    }
+    &__link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 57px;
+        @media #{$xs} {
+            height: 35px;
+        }
+        & img {
+            max-height: 100%;
+        }
+    }
+    &-active {
+        & .col {
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+    }
+}

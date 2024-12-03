@@ -1,0 +1,173 @@
+@use '../utils' as *;
+
+/*=============================
+    09. RoadMap
+===============================*/
+.section-pt-150 {
+    padding-top: 150px;
+    @media #{$xs} {
+        padding-top: 100px;
+    }
+}
+.section-pb-150 {
+    padding-bottom: 150px;
+    @media #{$xs} {
+        padding-bottom: 100px;
+    }
+}
+.roadMap {
+    &-bg {
+        background-position: center;
+        background-size: cover;
+    }
+    &__content {
+        & .title {
+            font-size: 55px;
+            font-weight: var(--tg-fw-extra-bold);
+            letter-spacing: 3px;
+            line-height: 1;
+            margin: 0 0 28px;
+            @media #{$lg} {
+                font-size: 50px;
+            }
+            @media #{$xs} {
+                font-size: 40px;
+            }
+        }
+        & p {
+            max-width: 95%;
+            letter-spacing: 1px;
+            margin: 0 0 35px;
+            @media #{$lg} {
+                max-width: 90%;
+            }
+            @media #{$xs} {
+                max-width: 100%;
+            }
+        }
+    }
+    &__img {
+        margin: 50px 0 0 -35px;
+        @media #{$lg} {
+            margin: 50px 0 0 0;
+        }
+    }
+    &__steps {
+        &-wrap {
+            margin-left: 60px;
+            position: relative;
+            @media #{$lg} {
+                margin-left: 0;
+            }
+            &::before {
+                content: "";
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 6px;
+                height: 100%;
+                background: -moz-linear-gradient(90deg, #10161c 0%, var(--tg-theme-primary) 100%);
+                background: -webkit-linear-gradient(90deg, #10161c 0%, var(--tg-theme-primary) 100%);
+                @include border-radius(5px);
+            }
+        }
+        &-item {
+            margin: 0 0 20px 45px;
+            background-color: #1b242e;
+            box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.21);
+            @include border-radius(8px);
+            padding: 45px 45px;
+            position: relative;
+            @media #{$xs} {
+                margin: 0 0 20px 35px;
+                padding: 35px 25px;
+            }
+            & .title {
+                font-size: 30px;
+                font-weight: var(--tg-fw-extra-bold);
+                line-height: 1;
+                margin: 0 0 22px;
+                @media #{$lg} {
+                    font-size: 26px;
+                }
+                @media #{$xs} {
+                    font-size: 24px;
+                }
+            }
+            &::before {
+                content: "";
+                position: absolute;
+                left: -39px;
+                top: 50%;
+                @include transform(translateY(-50%));
+                width: 0;
+                height: 0;
+                border-style: solid;
+                border-width: 20px 0 20px 18px;
+                border-color: transparent transparent transparent var(--tg-theme-primary);
+                opacity: 0;
+                @media #{$xs} {
+                    left: -34px;
+                }
+            }
+            &.active {
+                &::before {
+                    opacity: .9;
+                }
+            }
+            &:last-child {
+                margin-bottom: 0;
+            }
+            &:hover,
+            &.active {
+                & .roadMap__steps-img {
+                    opacity: .11;
+                }
+            }
+        }
+        &-img {
+            position: absolute;
+            right: 20px;
+            top: 30px;
+            max-height: 210px;
+            opacity: 0;
+            pointer-events: none;
+            @include transition(.4s);
+        }
+    }
+    &__list {
+        & li {
+            display: block;
+            font-size: 16px;
+            font-weight: var(--tg-fw-medium);
+            padding-left: 37px;
+            position: relative;
+            margin: 0 0 6px;
+            &:last-child {
+                margin: 0 0 0;
+            }
+            &::before {
+                content: "";
+                position: absolute;
+                left: 0;
+                top: 4px;
+                width: 20px;
+                height: 20px;
+                background: #10161c;
+                border: 2px solid #262e38;
+                @include border-radius(50%);
+                @include transition(.3s);
+            }
+            &.active {
+                &::before {
+                    background-color: var(--tg-theme-primary);
+                    border-color: #1b242e;
+                }
+                &:hover::before {
+                    background-color: var(--tg-theme-secondary);
+                    border-color: #1b242e;
+                }
+            }
+        }
+    }
+}

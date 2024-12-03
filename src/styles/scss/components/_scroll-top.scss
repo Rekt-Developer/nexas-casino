@@ -1,0 +1,58 @@
+@use '../utils' as *;
+
+/*=============================
+    00. Scroll Top
+===============================*/
+.scroll__top {
+	@include square-box(45px);
+	position: fixed;
+	bottom: -10%;
+	right: 50px;
+	font-size: 20px;
+	border-radius: 3px;
+	z-index: 99;
+	color: var(--tg-common-color-black-2);
+	text-align: center;
+	cursor: pointer;
+	background: var(--tg-theme-primary);
+	transition: .8s ease;
+	border: none;
+    &.open {
+        bottom: 30px;
+        @media #{$xs} {
+            bottom: 20px;
+        }
+    }
+    &::after {
+        position: absolute;
+        z-index: -1;
+        content: '';
+        top: 100%;
+        left: 5%;
+        height: 10px;
+        width: 90%;
+        opacity: 1;
+        background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0) 80%);
+    }
+    &:hover {
+        background: var(--tg-theme-secondary);
+        color: var(--tg-common-color-black-2);
+    }
+    & i {
+        @include transform(rotate(-90deg));
+    }
+    @media #{$lg} {
+        @include square-box(40px);
+        right: 30px;
+        font-size: 18px;
+    }
+    @media #{$xs} {
+        @include square-box(30px);
+        font-size: 16px;
+        right: 15px;
+    }
+    @media #{$sm} {
+        @include square-box(35px);
+        right: 25px;
+    }
+}

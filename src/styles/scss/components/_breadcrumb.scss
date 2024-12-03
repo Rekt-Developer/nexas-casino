@@ -1,0 +1,163 @@
+@use '../utils' as *;
+
+/*=============================
+	00. Breadcrumb
+===============================*/
+.breadcrumb {
+    &-area {
+        position: relative;
+        padding: 110px 0 75px;
+        background-position: center;
+        background-size: cover;
+        min-height: 561px;
+        @include flexbox();
+        align-items: center;
+        @media #{$xl} {
+            min-height: 480px;
+        }
+        @media #{$lg} {
+            min-height: 400px;
+        }
+        @media #{$xs} {
+            min-height: 310px;
+            padding: 120px 0 75px;
+        }
+        &::before,
+        &::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50%;
+            -webkit-clip-path: polygon(0 0, 0 100%, 100% 100%);
+            clip-path: polygon(0 0, 0 100%, 100% 100%);
+            background-color: var(--tg-theme-primary);
+            height: 50px;
+            @media #{$xl} {
+                height: 40px;
+            }
+            @media #{$lg} {
+                height: 30px;
+            }
+            @media #{$xs} {
+                height: 20px;
+            }
+        }
+        &::after {
+            left: auto;
+            right: 0;
+            -webkit-clip-path: polygon(100% 0, 0 100%, 100% 100%);
+            clip-path: polygon(100% 0, 0 100%, 100% 100%);
+        }
+    }
+    &__wrapper {
+        position: relative;
+        padding: 0 80px;
+        @media #{$lg} {
+            padding: 0 0;
+        }
+    }
+    &__content {
+        @media #{$md} {
+            text-align: center;
+        }
+        & .title {
+            font-size: 60px;
+            font-weight: var(--tg-fw-extra-bold);
+            letter-spacing: 3px;
+            line-height: 1;
+            margin: 0 0;
+            @media #{$xl} {
+                font-size: 50px;
+                letter-spacing: 2px;
+            }
+            @media #{$xs} {
+                font-size: 43px;
+            }
+        }
+        & .breadcrumb {
+            margin: 12px 0 0;
+            @media #{$md} {
+                justify-content: center;
+            }
+            & .breadcrumb-item {
+                text-transform: uppercase;
+                font-weight: var(--tg-fw-bold);
+                font-size: 14px;
+                letter-spacing: 2px;
+                @include flexbox();
+                align-items: center;
+                &::after {
+                    content: "";
+                    display: block;
+                    width: 8px;
+                    height: 8px;
+                    background: var(--tg-theme-primary);
+                    @include border-radius(50%);
+                    margin: 0 10px;
+                    @include transition(.3s);
+                }
+                &:hover {
+                    &::after {
+                        background: var(--tg-theme-secondary);
+                    }
+                }
+                &+.breadcrumb-item {
+                    padding: 0;
+                    &::before,
+                    &::after {
+                        display: none;
+                    }
+                }
+                &.active {
+                    color: var(--tg-common-color-white);
+                }
+            }
+        }
+    }
+    &__img {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 30px;
+        @media #{$xl} {
+            right: 60px;
+            top: 60%;
+        }
+        & img {
+            max-height: 412px;
+            max-width: 402px;
+            @media #{$xl} {
+                max-height: 320px;
+                max-width: 310px;
+            }
+            @media #{$lg} {
+                max-height: 260px;
+                max-width: 255px;
+            }
+        }
+        &:hover {
+            & img {
+                -webkit-animation: breadcrumbShake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+                animation: breadcrumbShake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+                -webkit-transform: translate3d(0, 0, 0);
+                transform: translate3d(0, 0, 0);
+                -webkit-backface-visibility: hidden;
+                backface-visibility: hidden;
+                -webkit-perspective: 1000px;
+                perspective: 1000px;
+            }
+        }
+    }
+    &__hide-img {
+        & .breadcrumb__wrapper {
+            padding: 0 0;
+        }
+        & .breadcrumb__content {
+            text-align: center;
+        }
+        & .breadcrumb {
+            justify-content: center;
+        }
+    }
+}

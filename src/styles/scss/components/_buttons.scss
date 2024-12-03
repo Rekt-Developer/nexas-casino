@@ -1,0 +1,269 @@
+@use '../utils' as *;
+
+/*=============================
+	1. Button style
+===============================*/
+.btn {
+    user-select: none;
+    -moz-user-select: none;
+    background: var(--tg-theme-primary) none repeat scroll 0 0;
+    border: medium none;
+    border-radius: 2px;
+    color: var(--tg-common-color-black-2);
+    cursor: pointer;
+    display: inline-flex;
+    font-size: 15px;
+    font-weight: var(--tg-fw-extra-bold);
+    letter-spacing: .8px;
+    margin-bottom: 0;
+    padding: 15px 34px;
+    text-align: center;
+    text-transform: uppercase;
+    touch-action: manipulation;
+    @include transition(.3s);
+    vertical-align: middle;
+    font-family: var(--tg-heading-font-family);
+    white-space: nowrap;
+
+    &:hover {
+        background: var(--tg-common-color-gray);
+        color: var(--tg-common-color-white);
+    }
+}
+
+/* TG Button 01 */
+.tg-btn-1 {
+    display: inline-flex;
+    font-family: var(--tg-heading-font-family);
+    color: var(--tg-common-color-black-2);
+    font-weight: var(--tg-fw-extra-bold);
+    text-transform: uppercase;
+    padding: 14px 49px;
+    font-size: 15px;
+    letter-spacing: 0.8px;
+    position: relative;
+    overflow: hidden;
+    justify-content: center;
+    text-align: center;
+    min-width: 195px;
+    z-index: 1;
+
+    &::before,
+    &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        @include transform(translateY(-50%));
+        // background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='white' width='100.25' height='126.657' viewBox='0 0 30.25 56.657'%3e%3cpath id='shape.svg' class='cls-1' d='M248.391%2c576.3L218.17%2c605.258l30.221%2c27.7L226.985%2c604Z' transform='translate(-218.156 -576.312)'/%3e%3c/svg%3e");
+        width: 30px;
+        height: calc(100% + 6px);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        z-index: 1;
+    }
+
+    &::after {
+        left: auto;
+        right: 0;
+        @include transform(translateY(-50%) rotateY(180deg));
+    }
+
+    & span {
+        &::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--tg-theme-primary);
+            clip-path: polygon(28px 0, calc(85% + 2px) 0, 100% 50%, calc(85% + 1px) 100%, 28px 100%, 0% 50%);
+            border-top: 2px solid var(--tg-common-color-white);
+            border-bottom: 2px solid var(--tg-common-color-white);
+            @include transition(.3s);
+            z-index: -1;
+        }
+    }
+
+    &:hover {
+        color: var(--tg-common-color-black-2);
+
+        & span {
+            &::after {
+                background: var(--tg-common-color-white);
+            }
+        }
+    }
+
+    &.-btn-yellow {
+        & span {
+            &::after {
+                background: var(--tg-theme-secondary);
+            }
+        }
+
+        &:hover {
+            & span::after {
+                background: var(--tg-theme-primary);
+            }
+        }
+    }
+}
+
+.tg-border-btn {
+    display: inline-flex;
+    font-family: var(--tg-heading-font-family);
+    color: var(--tg-common-color-white);
+    font-weight: var(--tg-fw-extra-bold);
+    text-transform: uppercase;
+    padding: 10px 20px;
+    font-size: 15px;
+    letter-spacing: 0.8px;
+    position: relative;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    // background-image: url("data:image/svg+xml,%3csvg width='157' height='48' viewBox='0 0 157 48' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cg clip-path='url(%23clip0_1_14)'%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M131.75 2L155.75 25L131.75 47L148.75 24L131.75 2Z' fill='%2307899d'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M25 1L1 24.5111L25 47L8 23.4889L25 1Z' fill='%2307899d'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M24.75 1L0.75 25L23.75 47H131.75L155.75 25L131.75 1H24.75Z' stroke='%2307899d' stroke-width='1.5'/%3e%3c/g%3e%3cdefs%3e%3cclipPath id='clip0_1_14'%3e%3crect width='156.5' height='47.5' fill='white'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-width: 157px;
+    min-height: 48px;
+    z-index: 1;
+
+    &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        background: var(--tg-theme-primary);
+        clip-path: polygon(27px 0, calc(85% + -3px) 0, 100% 50%, calc(85% + -1px) 100%, 24px 100%, 0% 50%);
+        @include transition(.3s);
+        opacity: 0;
+        z-index: -1;
+    }
+
+    & i {
+        margin-right: 10px;
+    }
+
+    &:hover {
+        color: var(--tg-common-color-black-2);
+
+        &::before {
+            opacity: 1;
+        }
+    }
+}
+
+/* TG Button 02 */
+.tg-btn-2 {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    font-family: var(--tg-heading-font-family);
+    color: var(--tg-common-color-white);
+    font-weight: var(--tg-fw-bold);
+    border: 2px solid var(--tg-theme-primary);
+    white-space: nowrap;
+    font-size: 20px;
+    padding: 14px 35px;
+    line-height: 1;
+    position: relative;
+    overflow: hidden;
+    @include transition(.3s);
+
+    &::before,
+    &::after {
+        content: "";
+        position: absolute;
+        left: -2px;
+        top: 50%;
+        @include transform(translateY(-50%));
+        // // background-image: url(../../img/icons/btn_shape01.png);
+        width: 15px;
+        height: 51px;
+        pointer-events: none;
+    }
+
+    &::after {
+        left: auto;
+        right: -2px;
+        @include transform(translateY(-50%) rotate(180deg));
+    }
+
+    &:hover {
+        background-color: var(--tg-theme-primary);
+        color: var(--tg-common-color-black-2);
+    }
+
+    &.-secondary {
+        border: 2px solid var(--tg-theme-secondary);
+
+        &::before,
+        &::after {
+            // background-image: url(../../img/icons/btn_shape02.png);
+        }
+
+        &:hover {
+            background-color: var(--tg-theme-secondary);
+        }
+    }
+}
+
+/* TG Button 03 */
+.tg-btn-3 {
+    @include flexbox();
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    font-family: var(--tg-heading-font-family);
+    color: var(--tg-common-color-black-2);
+    font-weight: var(--tg-fw-extra-bold);
+    background: transparent;
+    border: none;
+    white-space: nowrap;
+    font-size: 16px;
+    padding: 15px 25px;
+    line-height: 1;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    @include transition(.3s);
+    width: 188px;
+    height: 61px;
+
+    @media #{$xs} {
+        width: 166px;
+        height: 53px;
+        padding: 13px 22px;
+        font-size: 15px;
+    }
+
+    &:hover {
+        color: var(--tg-common-color-black-2);
+    }
+
+    & .svg-icon {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        fill: var(--tg-theme-primary);
+        stroke: var(--tg-common-color-white);
+        stroke-width: 2px;
+        fill-rule: evenodd;
+        z-index: -1;
+
+        & svg {
+            display: block;
+            @include transition(.3s);
+        }
+    }
+}

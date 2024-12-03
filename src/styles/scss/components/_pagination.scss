@@ -1,0 +1,41 @@
+@use '../utils' as *;
+
+/*=============================
+	1. Pagination
+===============================*/
+.pagination__wrap {
+    margin: 20px 0 0;
+    & ul {
+        gap: 10px 15px;
+        @media #{$xs} {
+            gap: 10px;
+        }
+    }
+    & .page-numbers {
+        @include flexbox();
+        align-items: center;
+        justify-content: center;
+        width: 50px;
+        height: 50px;
+        // background-image: -moz-linear-gradient(90deg, rgba(18, 21, 24, 0.4902) 0%, rgba(31, 41, 53, 0.36078) 100%);
+        // background-image: -webkit-linear-gradient(90deg, rgba(18, 21, 24, 0.4902) 0%, rgba(31, 41, 53, 0.36078) 100%);
+        // background-image: -ms-linear-gradient(90deg, rgba(18, 21, 24, 0.4902) 0%, rgba(31, 41, 53, 0.36078) 100%);
+        background-color: #171d24;
+        border: 1px solid var(--tg-border-4);
+        color: var(--tg-body-color);
+        @include border-radius(5px);
+        font-family: var(--tg-heading-font-family);
+        font-weight: var(--tg-fw-bold);
+        @media #{$xs} {
+            width: 40px;
+            height: 40px;
+            font-size: 14px;
+        }
+        &.current {
+            // background-image: none;
+            border-color: var(--tg-theme-primary);
+            background-color: var(--tg-theme-primary);
+            color: var(--tg-common-color-black-2);
+        }
+    }
+}

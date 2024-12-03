@@ -1,0 +1,318 @@
+@use '../utils' as *;
+
+/*=============================
+    10. Upcoming Match
+===============================*/
+.section-pb-85 {
+    padding-bottom: 85px;
+}
+.upcoming-match {
+    &__area {
+        background-position: bottom center;
+        background-size: cover;
+    }
+    &__lists {
+        margin: 0 80px;
+        @media #{$lg} {
+            margin: 0 0;
+        }
+    }
+    &__item {
+        position: relative;
+        margin: 0 0 60px;
+        @media #{$xs} {
+            background: #0f1c23;
+            border: 1px solid #2c2b2b;
+            border-radius: 8px;
+            padding: 25px;
+        }
+        @media #{$sm} {
+            padding: 30px;
+        }
+        &::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 50%;
+            @include transform(translateY(-50%));
+            // background-image: url(../../img/bg/line.png);
+            max-width: 80%;
+            height: 13px;
+            background-repeat: no-repeat;
+            background-position: center;
+            margin: 0 auto;
+            opacity: .1;
+            @media #{$lg} {
+                opacity: 0.05;
+            }
+            @media #{$xs} {
+                top: 60%;
+            }
+        }
+        & .svg-icon {
+            fill: #0f1c23;
+            stroke: #2c2b2b;
+            stroke-width: 1px;
+            fill-rule: evenodd;
+            & svg {
+                @media #{$md} {
+                    display: none;
+                }
+            }
+            @media #{$md} {
+                background: #0f1c23;
+                min-height: 140px;
+                border: 1px solid #2c2b2b;
+                border-radius: 8px;
+            }
+            @media #{$xs} {
+                display: none !important;
+            }
+        }
+        &:hover {
+            & .svg-icon {
+                stroke: var(--tg-theme-primary);
+            }
+        }
+    }
+    &__position {
+        @include flexbox();
+        position: absolute;
+        left: 60px;
+        right: 60px;
+        top: 21px;
+        bottom: 14px;
+        z-index: 1;
+        @media #{$lg} {
+            top: 17px;
+            bottom: 18px;
+        }
+        @media #{$md} {
+            top: 50%;
+            @include transform(translateY(-50%));
+            bottom: auto;
+            left: 30px;
+            right: 30px;
+        }
+        @media #{$xs} {
+            position: relative;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            top: auto;
+            @include transform(translateY(0));
+            left: 0;
+            right: 0;
+            row-gap: 15px;
+        }
+    }
+    &__team {
+        @include flexbox();
+        align-items: center;
+        justify-content: center;
+        width: 104px;
+        height: 104px;
+        box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.14);
+        @include border-radius(15px);
+        background: #14242c;
+        border: 3px solid #34353d;
+        @include transition(.3s);
+        @media #{$lg} {
+            width: 90px;
+            height: 90px;
+            flex: 0 0 auto;
+        }
+        @media #{$xs} {
+            width: 75px;
+            height: 75px;
+        }
+        @media #{$sm} {
+            width: 90px;
+            height: 90px;
+        }
+        &:hover {
+            border-color: var(--tg-theme-primary);
+        }
+        & img {
+            max-height: 75px;
+            @media #{$lg} {
+                max-width: 60px;
+            }
+            @media #{$xs} {
+                max-width: 45px;
+            }
+            @media #{$sm} {
+                max-width: 60px;
+            }
+        }
+        &.team-left {
+            margin-right: 20px;
+            @media #{$md} {
+                margin-right: 15px;
+            }
+        }
+        &.team-right {
+            margin-left: 20px;
+            @media #{$md} {
+                margin-left: 15px;
+            }
+        }
+    }
+    &__content {
+        @include flexbox();
+        align-items: center;
+        justify-content: center;
+        flex-grow: 1;
+        @media #{$xs} {
+            order: 2;
+            width: 100%;
+            flex: 0 0 100%;
+            gap: 30px;
+            justify-content: space-between;
+        }
+        & .team--info {
+            & .game-name {
+                display: block;
+                text-transform: uppercase;
+                font-family: var(--tg-heading-font-family);
+                font-size: 14px;
+                font-weight: var(--tg-fw-bold);
+                color: var(--tg-theme-primary);
+                letter-spacing: 1px;
+            }
+            & .name {
+                font-size: 26px;
+                font-weight: var(--tg-fw-extra-bold);
+                letter-spacing: 1.5px;
+                margin: 0 0;
+                @media #{$lg} {
+                    font-size: 22px;
+                }
+                @media #{$md} {
+                    font-size: 20px;
+                }
+                @media #{$xs} {
+                    font-size: 18px;
+                }
+                @media #{$sm} {
+                    font-size: 20px;
+                }
+                & a:hover {
+                    color: var(--tg-theme-primary);
+                }
+            }
+            &.info-left {
+                text-align: right;
+                @media #{$xs} {
+                    text-align: left;
+                }
+            }
+            &.info-right {
+                @media #{$xs} {
+                    text-align: right;
+                }
+            }
+        }
+    }
+    &__time {
+        @include border-radius(15px);
+        border: 4px solid #3f3f49;
+        background: rgba(12, 23, 29, 0.671);
+        width: 140px;
+        height: 110px;
+        @include flexbox();
+        align-items: center;
+        justify-content: center;
+        margin: 0 35px;
+        @media #{$lg} {
+            width: 130px;
+            height: 85px;
+        }
+        @media #{$md} {
+            width: 100px;
+            height: 85px;
+            margin: 0 20px;
+        }
+        @media #{$xs} {
+            position: absolute;
+            top: 0;
+            width: 95px;
+            height: 75px;
+            margin: 0 auto;
+            left: 0;
+            right: 0;
+            text-align: center;
+        }
+        @media #{$sm} {
+            width: 130px;
+            height: 90px;
+        }
+        & .time {
+            font-size: 34px;
+            margin: 0 0;
+            @media #{$lg} {
+                font-size: 30px;
+            }
+            @media #{$md} {
+                font-size: 26px;
+            }
+            @media #{$xs} {
+                font-size: 22px;
+            }
+            @media #{$sm} {
+                font-size: 30px;
+            }
+        }
+    }
+    &__date {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: -24px;
+        max-width: 287px;
+        height: 24px;
+        margin: 0 auto;
+        text-align: center;
+        overflow: hidden;
+        & svg {
+            display: block;
+            width: 100%;
+            height: 100%;
+            fill: #101d25;
+            fill-rule: evenodd;
+            @include transition(.3s);
+        }
+        & span {
+            position: absolute;
+            display: block;
+            left: 0;
+            right: 0;
+            top: 50%;
+            @include transform(translateY(-50%));
+            text-transform: uppercase;
+            font-size: 13px;
+            font-family: var(--tg-heading-font-family);
+            color: var(--tg-common-color-white);
+            font-weight: var(--tg-fw-bold);
+            letter-spacing: 1px;
+            opacity: .5;
+            @include transition(.3s);
+            line-height: 1;
+            padding: 0 30px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+    }
+    &__item:hover {
+        & .upcoming-match__date {
+            & svg {
+                fill: var(--tg-theme-primary);
+            }
+            & span {
+                color: #0f1c23;
+                opacity: 1;
+            }
+        }
+    }
+}

@@ -1,0 +1,234 @@
+@use '../utils' as *;
+
+/*=============================
+    00. OffCanvas Menu
+===============================*/
+.offCanvas {
+    &__wrap {
+        position: fixed;
+        overflow-y: auto;
+        top: 0;
+        right: 0;
+        width: 485px;
+        transform: translateX(100%);
+        height: 100%;
+        display: block;
+        background-color: var(--tg-common-color-black-8);
+        z-index: 1020;
+        -webkit-transition: all 600ms cubic-bezier(0.785, 0.135, 0.15, 0.86);
+        -moz-transition: all 600ms cubic-bezier(0.785, 0.135, 0.15, 0.86);
+        transition: all 600ms cubic-bezier(0.785, 0.135, 0.15, 0.86);
+        @include flexbox();
+        flex-direction: column;
+        &::-webkit-scrollbar {
+            width: 0px;
+        }
+        @media #{$xl} {
+            width: 430px;
+        }
+        @media #{$xs} {
+            width: 320px;
+        }
+    }
+    &__body {
+        @include flexbox();
+        flex-direction: column;
+        flex: 1;
+    }
+    &__top {
+        @include flexbox();
+        align-items: center;
+        padding: 35px 40px 25px;
+        border-bottom: 1px solid #18202a;
+    }
+    &__toggle {
+        margin-left: auto;
+        width: 50px;
+        height: 50px;
+        @include flexbox();
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+        color: var(--tg-body-color);
+        @include border-radius(50%);
+        background: #1f2935;
+        cursor: pointer;
+        @include transition(.3s);
+        &:hover {
+            background: var(--tg-theme-primary);
+            color: var(--tg-common-color-black);
+        }
+        @media #{$xl} {
+            width: 40px;
+            height: 40px;
+            font-size: 20px;
+        }
+    }
+    &__content {
+        padding: 25px 40px 50px 40px;
+        & .title {
+            font-size: 30px;
+            letter-spacing: 1px;
+            margin: 0 0 50px;
+            & span {
+                color: var(--tg-theme-primary);
+            }
+        }
+    }
+    &__newsletter {
+        & .small-title {
+            margin: 0 0 22px;
+            font-size: 16px;
+            letter-spacing: .5px;
+            font-weight: var(--tg-fw-semi-bold);
+            color: var(--tg-theme-primary);
+        }
+        &-form {
+            position: relative;
+            margin: 0 0 20px;
+            & [type=email] {
+                display: block;
+                width: 100%;
+                background: transparent;
+                border: 1px solid #202b36;
+                padding: 15px 80px 15px 22px;
+                font-size: 14px;
+                font-family: var(--tg-heading-font-family);
+                font-weight: var(--tg-fw-medium);
+                @include transition(.3s);
+                &:focus {
+                    border-color: #535d68;
+                }
+            }
+            & [type=submit] {
+                position: absolute;
+                right: 0;
+                top: 0;
+                bottom: 0;
+                border: none;
+                background: transparent;
+                width: 60px;
+                font-size: 22px;
+                &::before {
+                    content: "";
+                    position: absolute;
+                    width: 1px;
+                    top: 6px;
+                    background: #202b36;
+                    bottom: 6px;
+                    left: 0;
+                }
+            }
+        }
+        & p {
+            font-size: 14px;
+            font-weight: var(--tg-fw-medium);
+            margin: 0 0;
+        }
+    }
+    &__contact {
+        margin: 0 0 40px;
+        & .small-title {
+            margin: 0 0 22px;
+            font-size: 16px;
+            letter-spacing: .5px;
+            font-weight: var(--tg-fw-semi-bold);
+        }
+        &-list {
+            & li {
+                color: var(--tg-body-color);
+                font-family: var(--tg-heading-font-family);
+                font-weight: var(--tg-fw-medium);
+                position: relative;
+                padding-left: 23px;
+                margin: 0 0 8px;
+                &::before {
+                    content: "";
+                    position: absolute;
+                    left: 0;
+                    top: 11px;
+                    width: 7px;
+                    height: 7px;
+                    background: var(--tg-body-color);
+                    @include transition(.3s);
+                }
+                &:hover {
+                    &::before {
+                        background: var(--tg-theme-primary);
+                    }
+                }
+                &:last-child {
+                    margin: 0 0;
+                }
+                & a {
+                    color: var(--tg-body-color);
+                    &:hover {
+                        color: var(--tg-theme-primary)
+                    }
+                }
+            }
+        }
+    }
+    &__social {
+        @include flexbox();
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 10px 28px;
+        padding: 30px 0 0;
+        border-top: 1px solid #202b36;
+        margin: 50px 0 0;
+        & li {
+            line-height: 1;
+            & a {
+                display: block;
+                font-size: 16px;
+                color: var(--tg-common-color-white);
+                &:hover {
+                    color: var(--tg-theme-primary)
+                }
+            }
+        }
+    }
+    &__copyright {
+        margin: auto 0 0;
+        background: #090f16;
+        padding: 30px 40px;
+        & p {
+            margin: 0 0;
+            font-size: 14px;
+            text-transform: uppercase;
+            font-weight: var(--tg-fw-semi-bold);
+            font-family: var(--tg-heading-font-family);
+            letter-spacing: 1px;
+            & span {
+                color: var(--tg-theme-primary);
+            }
+        }
+    }
+    &__overlay {
+        position: fixed;
+        right: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 99;
+        background: var(--tg-common-color-black-9);
+        transition: all 700ms ease;
+        -moz-transition: all 700ms ease;
+        -webkit-transition: all 700ms ease;
+        -ms-transition: all 700ms ease;
+        -o-transition: all 700ms ease;
+        opacity: 0;
+        visibility: hidden;
+        cursor: none;
+    }
+    &__menu-visible {
+        & .offCanvas__overlay {
+            opacity: 0.8;
+            visibility: visible;
+        }
+        & .offCanvas__wrap {
+            transform: translateX(0);
+        }
+    }
+}

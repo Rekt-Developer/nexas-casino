@@ -1,0 +1,214 @@
+.swiper-container {
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.swiper-slides {
+  height: 576px;
+  width: 100%;
+  position: absolute;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.swiper-slides_img {
+  -webkit-mask-image: -webkit-gradient(linear, left top, right top, color-stop(0, transparent), color-stop(.11, #000), color-stop(.89, #000), color-stop(1, transparent));
+}
+
+
+
+.game-slider {
+  display: block;
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0
+}
+
+.game-slider>.sliderload {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 576px;
+  background: rgba(0, 0, 0, .05)
+}
+
+.game-slider>.sliderload>div {
+  display: block;
+  position: absolute;
+  width: 72px;
+  height: 54px;
+  top: calc(50% - 36px);
+  left: calc(50% - 27px)
+}
+
+.game-slider>.sliderload>div>img {
+  display: block;
+  width: 100%
+}
+
+.game-slider>.base {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  z-index: 0
+}
+
+.game-slider>.base>.cover {
+  position: absolute;
+  z-index: 1;
+  top: 576px;
+  width: 100%;
+  height: Calc(850px - 576px);
+  background: linear-gradient(hsla(0, 0%, 100%, .5), hsla(0, 0%, 100%, .7) 35%, #fff)
+}
+
+.slide-pag {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  z-index: 1;
+}
+
+.slide-pag .pag-cover {
+  display: block;
+  position: relative;
+  float: right;
+  padding: 16px;
+  border-radius: 14px;
+  overflow: hidden
+}
+
+.slide-pag .pag-cover .pag-bg {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(41, 41, 41, .5);
+  z-index: -1;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px)
+}
+
+.slide-pag .pag-cover .pagbox {
+  display: block;
+  float: left;
+  margin: 0 12px 0 0;
+  cursor: pointer;
+  opacity: .4;
+  filter: grayscale(100%);
+  transition: all .3s ease
+}
+
+.slide-pag .pag-cover .pagbox.active {
+  opacity: 1;
+  filter: grayscale(0)
+}
+
+.slide-pag .pag-cover .pagbox:last-child {
+  margin: 0
+}
+
+.slide-pag .pag-cover .pagbox img {
+  display: block;
+  width: 100%
+}
+
+.slide-pag .pag-cover .pagbox>span {
+  display: none
+}
+
+
+
+.our-games .single-box:hover .thumb-img {
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
+
+.our-games .single-box .relative.d-center img {
+  border-radius: 12px;
+}
+
+.our-games .single-box .relative.d-center .mfp-iframe {
+  opacity: 0;
+  transition: 0.8s all;
+}
+
+.our-games .single-box .relative.d-center:hover .mfp-iframe {
+  opacity: 1;
+}
+
+.our-games .thumb-img {
+  margin-bottom: -70px;
+  transition: all 0.8s;
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 60%, 0% 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 75%, 0% 100%);
+}
+
+.single-box {
+  background-color: #303141;
+  border: 1px solid #4c4d5a;
+  border-radius: 12px;
+}
+
+
+
+.box-style {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  height: 170px;
+  width: 170px;
+  font-weight: 600;
+  transition: all 0.3s;
+  z-index: 0;
+  border-radius: 50%;
+}
+
+.box-style:hover {
+  color: #222434;
+}
+
+.box-style:hover::before {
+  width: 300%;
+  height: 300%;
+}
+
+.box-style::before {
+  content: "";
+  position: absolute;
+  top: 94px;
+  left: 133px;
+  transform: translate(-50%, -50%);
+  width: 0;
+  height: 0;
+  border-radius: 100%;
+  background-color: #0ef0ad !important;
+  transition: all 0.7s ease;
+  z-index: -1;
+}
+
+.box-style.btn-box-second {
+  height: 110px;
+  width: 110px;
+  background-color: #0ef0ad !important;
+  color: #222434;
+}
+
+.box-style.btn-box-second:hover {
+  color: #fff;
+}
+
+.box-style.btn-box-second:hover:before {
+  background-color: #09926a;
+}

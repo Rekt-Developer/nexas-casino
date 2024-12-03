@@ -1,0 +1,8 @@
+.vertical-timeline-element-content {
+  background: transparent;
+  box-shadow: none;
+  padding: 0 !important;
+}
+.vertical-timeline-element-content-arrow{
+  border-right-color: #303141;
+}

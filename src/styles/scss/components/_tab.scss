@@ -1,0 +1,31 @@
+@use '../utils' as *;
+
+/**
+Default Tab Style
+**/
+.nav-tabs {
+    border: none;
+    & .nav-item {
+        margin: 0 0;
+    }
+    & .nav-link {
+        padding: 0;
+        margin: 0;
+        background: transparent;
+        border: none;
+        @include border-radius(0);
+        &.active {
+            background: transparent;
+            border-color: transparent;
+        }
+        &:focus,
+        &:hover {
+            isolation: auto;
+        }
+    }
+}
+.tab-pane {
+    &.active {
+        animation: tgSlideDown .5s ease-in-out;
+    }
+}

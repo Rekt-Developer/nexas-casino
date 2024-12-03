@@ -1,0 +1,62 @@
+
+racoon.png
+size: 699,956
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+图层 22
+  rotate: false
+  xy: 588, 479
+  size: 109, 194
+  orig: 109, 194
+  offset: 0, 0
+  index: -1
+图层 23
+  rotate: true
+  xy: 356, 675
+  size: 279, 277
+  orig: 446, 646
+  offset: 0, 195
+  index: -1
+图层 25
+  rotate: true
+  xy: 367, 4
+  size: 158, 242
+  orig: 158, 242
+  offset: 0, 0
+  index: -1
+图层 26
+  rotate: false
+  xy: 367, 164
+  size: 162, 225
+  orig: 162, 226
+  offset: 0, 1
+  index: -1
+图层 29
+  rotate: true
+  xy: 531, 224
+  size: 165, 157
+  orig: 165, 157
+  offset: 0, 0
+  index: -1
+图层 30
+  rotate: false
+  xy: 356, 391
+  size: 230, 282
+  orig: 230, 282
+  offset: 0, 0
+  index: -1
+图层 31
+  rotate: false
+  xy: 2, 2
+  size: 363, 288
+  orig: 363, 288
+  offset: 0, 0
+  index: -1
+组 1
+  rotate: true
+  xy: 2, 292
+  size: 662, 352
+  orig: 662, 352
+  offset: 0, 0
+  index: -1
